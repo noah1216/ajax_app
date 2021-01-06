@@ -12,5 +12,18 @@ class PostsController < ApplicationController
     redirect_to action: :index
   end
 
-end
 
+  def checked
+    post = Post.find(params[:id])
+    if post.checked
+      post.update(checked: false)
+    else
+      post.update(checked: true)
+    end
+    item = Post.find(params[:id])
+    render json: { post: item}
+  end
+
+end
+# 既読であれば「既読を解除するためにfalseへ変更」し
+# 既読でなければ「既読にするためtrueへ変更」します
