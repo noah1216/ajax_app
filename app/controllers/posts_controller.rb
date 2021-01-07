@@ -21,9 +21,11 @@ class PostsController < ApplicationController
       post.update(checked: true)
     end
     item = Post.find(params[:id])
-    render json: { post: item}
+    render json:{ post: item }
   end
-
-end
 # 既読であれば「既読を解除するためにfalseへ変更」し
 # 既読でなければ「既読にするためtrueへ変更」します
+
+
+end
+
